@@ -36,7 +36,6 @@ const NavBar = () => {
                 text-[0.9rem]
                 font-semibold
                 hover:bg-[#31ffd7]
-                hover:text-white
                 rounded-[7px]
                 duration-300
             " 

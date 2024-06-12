@@ -5,10 +5,11 @@ import { Images } from '../constant';
 
 const Home = () => {
   return (
-    <div className='min-h-screen flex flex-col justify-center'>
+    <div className='flex flex-col justify-center'>
       <NavBar />
-      <div className='flex-1 flex items-center px-3 justify-center w-full gap-11'>
-        <div className='w-[30%] '>
+      <div className='flex items-center justify-center h-[90vh] bg-none'>
+      <div className='flex z-50 items-center justify-between px-3 bg-none h-[40vh] w-[1000px] rounded-lg'>
+        <div className='w-[50%] ml-10 mr-10'>
           <Text
             text="Welcome to The System"
             style="
@@ -21,20 +22,18 @@ const Home = () => {
             style="text-[14px]"
           />
           <NavigationButton 
-            name="Find Chatbot"
+            name="Get Started"
             type="button"
             style="
-              w-[150px]
-              h-[30px]
-              px-5
+              px-10
               py-3
-              mt-3
+              mt-5
               bg-[#31ffd7]
               flex
               items-center
               justify-center
-              rounded-[4px]
-              text-[1rem]
+              rounded-md
+              text-[0.9rem]
               font-semibold
               hover:bg-slate-900
               hover:text-slate-50
@@ -47,13 +46,17 @@ const Home = () => {
             src={Images.chatbot}
             href="ChatBot"
             style="
-              w-[350px]
-              h-[350px]
+              w-[300px]
+              h-[300px]
             "
           />
         </div>
       </div>
-      <Footer />
+      <div className='absolute bg-slate-200 h-[40vh] w-[1000px] rounded-lg z-0 opacity-65'></div>
+      </div>
+      <div className='fixed bottom-0 left-0 w-full'>
+        <Footer />
+      </div>
     </div>
   )
 }
