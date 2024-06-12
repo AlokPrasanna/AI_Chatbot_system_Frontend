@@ -3,8 +3,10 @@ import { Text } from '../atoms';
 
 const Footer = () => {
   return (
-    <footer className='flex w-full h-[50px] bg-slate-200 opacity-60 items-center justify-center'>
-      &copy;<Text text="All rights reserved" />
+    <footer className='flex w-full h-[50px] items-center justify-end'>
+      <div className='mr-5'>
+       <Text text=" &copy; All rights reserved"  />
+      </div>
     </footer>
   )
 }

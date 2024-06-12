@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import { ChatPage ,Home } from "./pages";
 
 function App() {
   const particlesInit = useCallback(async engine => {
@@ -84,7 +84,7 @@ function App() {
               type: "circle",
             },
             size: {
-              value: { min: 1, max: 5 },
+              value: { min: 1, max: 7 },
             },
           },
           detectRetina: true,
@@ -99,6 +99,7 @@ function App() {
       <div className="relative z-10">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/chatbot" element={<ChatPage />} />
         </Routes>
       </div>
     </div>

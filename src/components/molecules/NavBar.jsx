@@ -1,13 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { List , Image } from '../atoms';
 import { Images } from '../../constant';
 
 const NavBar = () => {
-    const navElements = [
-        { name: "HOME", url: "/" },
-        { name: "CONTACT", url: "/contact" },
-        { name: "ABOUT", url: "/about" },
-      ];
+
+  const Navigate = useNavigate();
+
+  const navElements = [
+      { name: "HOME", url: "/" },
+      { name: "CHATBOT", url: "/chatbot" },
+      { name: "ABOUT", url: "/about" },
+  ];
+
+  const handelImageClick = () => {
+    Navigate("/");
+  }
   return (
     <div className='flex items-center justify-between px-3 mt-4 h-70px w-100%'>
       <div>
@@ -19,7 +27,8 @@ const NavBar = () => {
                 h-[50px]
                 m-2
                 cursor-pointer
-            " 
+            "
+            onClickFunc={handelImageClick} 
         />
       </div>
       <div>

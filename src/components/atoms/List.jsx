@@ -6,7 +6,7 @@ const List = ({elements = [] , ulStyle , liStyle , divStyle}) => {
     <div className={`${divStyle ? divStyle : ""}`}>
       <ul className={`${ulStyle ? ulStyle : ""}`}>
         {elements.length > 0 && elements.map((element , index) => (
-            <li key={index} className={`${liStyle ? liStyle : ""}`}><Link to={element.path}>{element.name}</Link></li>
+            <li key={index} className={`${liStyle ? liStyle : ""}`}><Link to={element.url}>{element.name}</Link></li>
         ))}
       </ul>
     </div>

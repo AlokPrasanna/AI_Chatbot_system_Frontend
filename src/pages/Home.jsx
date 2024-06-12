@@ -2,8 +2,14 @@ import React from 'react';
 import { NavBar, Footer } from '../components/molecules';
 import { Text, Image, NavigationButton } from '../components/atoms';
 import { Images } from '../constant';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const Navigate = useNavigate();
+
+  const handelNavigateButton = () => {
+    Navigate("/chatbot");
+  }
   return (
     <div className='flex flex-col justify-center'>
       <NavBar />
@@ -39,6 +45,7 @@ const Home = () => {
               hover:text-slate-50
               duration-300
             "
+            onClickFunc={handelNavigateButton}
           />
         </div>
         <div>
