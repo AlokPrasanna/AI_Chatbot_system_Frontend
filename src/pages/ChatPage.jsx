@@ -143,6 +143,7 @@ const ChatPage = () => {
                                     h-[40px]
                                     rounded-md
                                     outline-none
+                                    text-[12px]
                                     px-3
                                     py-2
                                 "
