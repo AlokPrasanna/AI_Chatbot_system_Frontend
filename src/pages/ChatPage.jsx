@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useRef , useEffect } from 'react';
 import { NavBar, Footer, Message } from '../components/molecules';
 import { IconButton, InputBox } from '../components/atoms';
 import faqData from '../data/faq.json';
@@ -6,7 +6,14 @@ import faqData from '../data/faq.json';
 const ChatPage = () => {
     const [messages, setMessages] = useState([]);
     const [userInput, setUserInput] = useState("");
-    console.log(faqData);
+    const messageContainerRef = useRef(null);
+    const lastMessageRef = useRef(null);
+
+    useEffect(() => {
+        if (lastMessageRef.current) {
+            lastMessageRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [messages]);
 
     const handleSendMessages = () => {
         if (userInput.trim()) {
@@ -78,12 +85,14 @@ const ChatPage = () => {
                 selectReply = faqData.filter(message => message.id === 26);
             }else if (['registration fee', 'fee for registration', 'cost of registration'].some(keyWord => userInput.toLocaleLowerCase().includes(keyWord))) {
                 selectReply = faqData.filter(message => message.id === 27);
-            }else if (['total cost of degree', 'cost of degree', 'degree expenses'].some(keyWord => userInput.toLocaleLowerCase().includes(keyWord))) {
+            }else if (['total cost of degree', 'cost of degree', 'degree expenses','total cost'].some(keyWord => userInput.toLocaleLowerCase().includes(keyWord))) {
                 selectReply = faqData.filter(message => message.id === 28);
             }else if (['email verification during registration', 'email verification problem', 'email issue during registration'].some(keyWord => userInput.toLocaleLowerCase().includes(keyWord))) {
                 selectReply = faqData.filter(message => message.id === 29);
             }else if (['degree admission notification', 'admission notification', 'degree selection notification'].some(keyWord => userInput.toLocaleLowerCase().includes(keyWord))) {
                 selectReply = faqData.filter(message => message.id === 30);
+            } else {
+                selectReply = [{ id: -1, message: "Sorry, I can't understand you. Can you send that message again?" }];
             }
 
             setTimeout(() => {
@@ -115,21 +124,22 @@ const ChatPage = () => {
             <NavBar />
             <div className='flex items-center justify-center h-[90vh] bg-none'>
                 <div className='flex flex-col z-50 px-3 h-[60vh] w-1/2 rounded-lg'>
-                    <div className='w-full h-[50vh] mt-5 overflow-y-auto overflow-x-hidden'>
+                    <div ref={messageContainerRef} className='w-full h-[50vh] mt-5 overflow-y-auto overflow-x-hidden'>
                         {messages.length > 0 && messages.map((msg, index) => (
                             <Message 
                                 key={index}
                                 name={msg.name}
                                 content={msg.content}
                                 position={msg.position}
+                                ref={index === messages.length - 1 ? lastMessageRef : null}
                             />
                         ))}
                     </div>
-                    <div className='flex items-end justify-center w-full h-[10vh] p-5'>
+                    <div className='flex items-end justify-center w-full h-[8vh] p-5'>
                         <div className='flex items-center justify-center w-full gap-5'>
                             <InputBox 
                                 style="
-                                    w-4/5
+                                    w-full
                                     h-[40px]
                                     rounded-md
                                     outline-none
