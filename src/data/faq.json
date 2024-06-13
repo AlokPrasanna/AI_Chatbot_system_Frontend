@@ -158,5 +158,9 @@
     {
         "id": 39,
         "message": "Yes, you can join the learning activities after the registration is complete."
+    },
+    {
+        "id": 40,
+        "message": "You're Welcome."
     }
 ]

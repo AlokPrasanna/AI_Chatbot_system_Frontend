@@ -91,6 +91,8 @@ const ChatPage = () => {
                 selectReply = faqData.filter(message => message.id === 29);
             }else if (['degree admission notification', 'admission notification', 'degree selection notification'].some(keyWord => userInput.toLocaleLowerCase().includes(keyWord))) {
                 selectReply = faqData.filter(message => message.id === 30);
+            }else if (['thank you', 'thankz', 'thank for your help'].some(keyWord => userInput.toLocaleLowerCase().includes(keyWord))) {
+                selectReply = faqData.filter(message => message.id === 40);
             } else {
                 selectReply = [{ id: -1, message: "Sorry, I can't understand you. Can you send that message again?" }];
             }
