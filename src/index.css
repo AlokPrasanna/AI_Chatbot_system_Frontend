@@ -19,3 +19,19 @@
     height: "100%";
     background-color:#f2fdfe;
   }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track{
+    background: #888; 
+ }
+
+ ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: #555;
+}
