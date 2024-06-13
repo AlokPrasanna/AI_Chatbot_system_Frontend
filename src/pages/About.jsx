@@ -27,7 +27,7 @@ const About = () => {
             src={Images.ousl_logo}
             href="ChatBot"
             style="
-              w-[110px]
+              w-[117px]
               h-[150px]
             "
           />
