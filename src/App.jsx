@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import { Routes, Route } from "react-router-dom";
-import { ChatPage ,Home } from "./pages";
+import { ChatPage ,Home , About } from "./pages";
 
 function App() {
   const particlesInit = useCallback(async engine => {
@@ -100,6 +100,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chatbot" element={<ChatPage />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </div>
